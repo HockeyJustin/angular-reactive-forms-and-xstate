@@ -1,0 +1,20 @@
+<button [ngStyle]="{'background-color':button1BkgColor.value, 'color': button1Color.value}">Test</button>
+
+<form [formGroup]="themeForm" #formDir="ngForm">
+
+    <div formGroupName="button1">
+        <div>
+            <label>
+                Background Color:
+                <input type="text" formControlName="backgroundColor">
+            </label>
+        </div>
+        <div>
+            <label>
+                Color:
+                <input type="text" formControlName="color">
+            </label>
+        </div>
+    </div>
+
+</form>

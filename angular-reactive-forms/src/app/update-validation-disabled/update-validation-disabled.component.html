@@ -1,0 +1,16 @@
+<form [formGroup]="parentFormGroup">
+    <h3>Enable/Disable</h3>
+    <div formGroupName="updateValidationDisabled">
+        <input type="checkbox" formControlName="optionA_D"> Option A
+        <input type="checkbox" formControlName="optionB_D"> Option B
+        <input formControlName="optionBExtra_D" placeholder="Reason">
+        <div *ngIf="parentNgForm.submitted && optionBExtra_D?.errors?.required" 
+        class="validation-box">
+            Required
+        </div>
+        <div *ngIf="parentNgForm.submitted && optionBExtra_D?.errors?.minlength" 
+        class="validation-box">
+            Min Length 5
+        </div>
+    </div>
+</form>

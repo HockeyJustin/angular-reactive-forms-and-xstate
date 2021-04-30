@@ -1,0 +1,33 @@
+<div [formGroup]="formGroup">
+
+    <div>
+        <label>
+            Address 1:
+            <input type="text" formControlName="addressL1" required>
+        </label>
+        <!-- WARNING: Use a property instead of parentFormGroup?.get('fullName')?... in UI (see title) -->
+        <div *ngIf="hasValidated && addressL1?.errors?.required" class="validation-box">
+            Required
+        </div>
+    </div>
+
+    <div>
+        <label>
+            Address 2:
+            <input type="text" formControlName="addressL1" required>
+        </label>
+        <!-- WARNING: Use a property instead of parentFormGroup?.get('fullName')?... in UI (see title) -->
+        <div *ngIf="hasValidated && addressL2?.errors?.required" class="validation-box">
+            Required
+        </div>
+    </div>
+
+    <div>
+        address group valid: {{formGroup.valid}}
+    </div>
+
+    <!-- <div>
+            fullName group valid: {{parentFormGroup.controls.fullName.valid}}
+        </div> -->
+
+</div>

@@ -1,0 +1,46 @@
+
+<div [formGroup]="formGroup">
+
+        <label>
+            Title:
+            <select class="custom-select" (change)="changeTitle($event)" formControlName="title">
+                <option value="" disabled>-</option>
+                <option *ngFor="let t of Titles" [ngValue]="t">{{t}}</option>
+             </select>
+             <div *ngIf="parentNgForm.submitted && title?.errors?.required" 
+             class="validation-box">
+                 Required
+             </div>
+        </label>
+
+
+        <label>
+            First Name:
+            <input type="text" formControlName="firstName" required>
+        </label>
+        <!-- WARNING: Use a property instead of parentFormGroup?.get('fullName')?.get('firstName')?.errors?.required -->
+        <div *ngIf="parentNgForm.submitted && fullName?.errors?.required" 
+        class="validation-box">
+            Required
+        </div>
+
+
+        <label>
+            Last Name:
+            <input type="text" formControlName="lastName">
+        </label>
+
+        <button (click)="check()">Check</button>
+
+        <div>
+            fullName group valid: {{formGroup.valid}}
+        </div>
+
+
+        <!-- <div style="background-color: bisque; height: 100px; overflow: scroll;">
+            Full Deets: {{parentForm.get('fullName') | circularObjectToJsonPipe}}
+        </div>
+        <div style="background-color: bisque; height: 100px; overflow: scroll;">
+            <p>{{parentForm.controls.fullName | circularObjectToJsonPipe}}</p>
+        </div> -->
+    </div>

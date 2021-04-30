@@ -1,0 +1,31 @@
+<form [formGroup]="parentFormGroup">
+    <div formGroupName="address">
+        <h3>Address</h3>
+
+        <label>
+            Street:
+            <input type="text" formControlName="street" required minlength="2">
+        </label>
+        <!-- WARNING: Use a property instead of parentFormGroup?.get('address')?.get('street')?.errors?.required -->
+        <div *ngIf="parentNgForm.submitted && street?.errors?.required" 
+        class="validation-box">
+            Required
+        </div>
+
+
+        <label>
+            City:
+            <input type="text" formControlName="city">
+        </label>
+
+        <label>
+            State:
+            <input type="text" formControlName="state">
+        </label>
+
+        <label>
+            Zip Code:
+            <input type="text" formControlName="zip">
+        </label>
+    </div>
+  </form>

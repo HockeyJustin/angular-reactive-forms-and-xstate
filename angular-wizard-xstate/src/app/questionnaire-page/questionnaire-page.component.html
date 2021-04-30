@@ -1,0 +1,39 @@
+<h1>Participation Request</h1>
+
+<p>Time: {{nowTime}}</p>
+
+
+<button (click)="moveBack()">Back</button>
+<button style="margin-left: 200px;" (click)="moveNext()">Next</button>
+
+<p>State: {{currentStep}}</p>
+
+
+<form [formGroup]="profileForm" #formDir="ngForm">
+
+    <div *ngIf="currentStep == 'fullName'">
+        <div formGroupName="fullName">
+            <app-cf-full-name [formGroup]="profileForm.get('fullName')" [parentNgForm]="formDir"></app-cf-full-name>
+        </div>
+      
+    </div>
+
+    <div *ngIf="currentStep == 'address'">
+        <div formGroupName="address">
+            <app-cf-address [formGroup]="profileForm.get('address')" [parentNgForm]="formDir"></app-cf-address>
+        </div>
+    </div>
+
+    <div *ngIf="currentStep == 'phonenumber'">
+        <div formGroupName="phonenumber">
+            <app-cf-phonenumber [formGroup]="profileForm.get('phonenumber')" [parentNgForm]="formDir"></app-cf-phonenumber>
+        </div>
+    </div>
+
+    <div *ngIf="currentStep == 'notes'">
+        <div formGroupName="notes">
+            <app-cf-notes [formGroup]="profileForm.get('notes')" [parentNgForm]="formDir"></app-cf-notes>
+        </div>
+    </div>
+
+</form>

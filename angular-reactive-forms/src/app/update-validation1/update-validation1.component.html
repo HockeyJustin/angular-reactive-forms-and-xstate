@@ -1,0 +1,16 @@
+<form [formGroup]="parentFormGroup">
+    <h3>Show/Hide</h3>
+    <div formGroupName="updateValidation1">
+        <input type="checkbox" formControlName="optionA"> Option A
+        <input type="checkbox" formControlName="optionB"> Option B
+        <input formControlName="optionBExtra" placeholder="Reason" *ngIf="optionB.value">
+        <div *ngIf="parentNgForm.submitted && optionBExtra?.errors?.required" 
+        class="validation-box">
+            Required
+        </div>
+        <div *ngIf="parentNgForm.submitted && optionBExtra?.errors?.minlength" 
+        class="validation-box">
+            Min Length 5
+        </div>
+    </div>
+</form>

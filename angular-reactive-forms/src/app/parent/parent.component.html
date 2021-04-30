@@ -1,0 +1,32 @@
+
+<p>Form Status: {{ profileForm.status }}</p>
+<p>{{nowTime}}</p>
+
+<button (click)="isDirtyCheck()">Dirty Check</button>
+
+
+<form [formGroup]="profileForm" #formDir="ngForm" (ngSubmit)="onSubmit()">
+
+    <input formControlName="control1" type="number">
+    <input formControlName="control2" type="number">
+    <p *ngIf="profileForm?.get('control2')?.errors?.notEquivalent" class="validation-box">
+        Control 1 and 2 Must be the same
+    </p>
+
+    <div formGroupName="fullName">
+        <p>Full Name component has a better way of handling parent/child relationship</p>
+        <app-full-name [formGroup]="profileForm.get('fullName')" [parentNgForm]="formDir"></app-full-name>
+    </div>
+    
+    <p>The following pass down whole parent, which effectively ties it too closely!</p>
+    <app-address [parentFormGroup]="profileForm" [parentNgForm]="formDir"></app-address>
+
+    <app-update-validation1 [parentFormGroup]="profileForm" [parentNgForm]="formDir"></app-update-validation1>
+    <p>Test</p>
+    <app-update-validation-disabled [parentFormGroup]="profileForm" [parentNgForm]="formDir"></app-update-validation-disabled>
+
+    <!-- <button type="submit" [disabled]="!profileForm.valid">Submit</button> -->
+    <button type="submit">Submit</button>
+    <p *ngIf="profileForm.invalid && formDir.submitted">Submitted at least once</p>
+
+</form>

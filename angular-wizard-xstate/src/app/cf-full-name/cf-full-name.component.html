@@ -1,0 +1,47 @@
+
+    <div [formGroup]="formGroup">
+
+        <div>
+            <label>
+                Title:
+                <select class="custom-select" (change)="changeTitle($event)" formControlName="title">
+                    <option value="" disabled>-</option>
+                    <option *ngFor="let t of Titles" [ngValue]="t">{{t}}</option>
+                </select>
+                <div *ngIf="hasValidated && title?.errors?.required" class="validation-box">
+                    Required
+                </div>
+            </label>
+        </div>
+
+
+        <div>
+            <label>
+                First Name:
+                <input type="text" formControlName="firstName" required>
+            </label>
+            <!-- WARNING: Use a property instead of parentFormGroup?.get('fullName')?... in UI (see title) -->
+            <div *ngIf="hasValidated && firstName?.errors?.required" class="validation-box">
+                Required
+            </div>
+        </div>
+
+        <div>
+            <label>
+                Last Name:
+                <input type="text" formControlName="lastName">
+            </label>
+            <div *ngIf="hasValidated && lastName?.errors?.required" class="validation-box">
+                Required
+            </div>
+        </div>
+
+        <div>
+            fullName group valid: {{formGroup.valid}}
+        </div>
+
+        <!-- <div>
+            fullName group valid: {{parentFormGroup.controls.fullName.valid}}
+        </div> -->
+
+    </div>

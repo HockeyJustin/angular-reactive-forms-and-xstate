@@ -1,0 +1,14 @@
+<div [formGroup]="formGroup">
+    <label>
+        First Name:
+        <input type="text" formControlName="firstName" required>
+    </label>
+    <!-- WARNING: Use a property instead of parentFormGroup?.get('fullName')?... in UI (see title) -->
+    <div *ngIf="firstName?.errors?.required" class="validation-box">
+        Required
+    </div>
+
+    
+
+
+</div>

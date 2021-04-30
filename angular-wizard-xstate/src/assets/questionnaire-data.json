@@ -1,0 +1,19 @@
+{
+    "fullName":{
+        "title":"",
+        "firstName": "",
+        "lastName":""
+    },
+    "address": {
+        "addressL1": "",
+        "addressL2": "",
+        "postcodeZip": ""
+    },
+    "phonenumber":{
+        "phonenumberName": "",
+        "phonenumberAcctNo": ""
+      },
+    "notes":{
+        "numberOfnotes": 0
+    }
+}
